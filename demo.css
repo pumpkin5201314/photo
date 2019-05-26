@@ -1,0 +1,207 @@
+*{
+	margin:0;
+	padding:0;
+	list-style: none;
+	text-decoration: none;
+}
+
+html,body,.wrapper{
+	width:100%;
+	height:100%;
+}
+.wrapper{
+	/*overflow:hidden;*/
+	display:flex;
+	background-color: black;
+	justify-content: center;
+	align-items: center;
+	 
+}
+
+.content{
+	/*overflow:hidden;*/
+    display: flex;
+	justify-content: space-between;
+	width:80%;
+	height:80%;
+	align-items: center;
+	/*border:1px solid #fff;*/
+}
+.item{
+	overflow:hidden;
+
+	border-radius: 20px;
+	width:16%;
+	height:100%;
+	/*border:1px solid #fff;*/
+	cursor: pointer;
+	background-color: #333;
+
+}
+.item:hover .bg{
+	opacity: 1;
+}
+.item:hover h3{
+	font-size: 24px;
+}
+.inner{
+	position: relative;
+	width:100%;
+	height:100%;
+	transition: transform 0.5s linear;
+
+}
+.bg{
+	width:100%;
+	height:100%;
+	border-radius: 20px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position:center;
+	opacity: 0.4;
+	transition: all 0.2s linear;
+
+}
+
+.item:nth-of-type(1) .bg{
+	background-image: url("./pic/8.jpg");
+
+}
+.item:nth-of-type(2) .bg{
+	background-image: url("./pic/9.jpg");
+
+}
+.item:nth-of-type(3) .bg{
+	background-image: url("./pic/4.jpg");
+
+}
+.item:nth-of-type(4) .bg{
+	background-image: url("./pic/5.jpg");
+
+}
+.item:nth-of-type(5) .bg{
+	background-image: url("./pic/6.jpg");
+
+}
+.item:nth-of-type(6) .bg{
+	background-image: url("./pic/7.jpg");
+
+}
+.title{
+	 position: absolute;
+	 left:50%;
+	 top:50%;
+	 transform: translate(-50% ,-50%);
+
+}
+h3{
+	color:#fff;
+	font-size: 16px;
+	transition: all 0.2s linear;
+}
+
+
+/*初始下到上的动画*/
+/*init---》inner在item下面*/
+.init .item .inner{
+	transform: translateY(100%);
+
+}
+
+.item:nth-of-type(1) .inner{
+transition-delay: 0s
+}
+.item:nth-of-type(2) .inner{
+transition-delay:0.1s 
+}
+.item:nth-of-type(3) .inner{
+transition-delay: 0.2s
+}
+.item:nth-of-type(4) .inner{
+transition-delay: 0.3s
+}
+.item:nth-of-type(5) .inner{
+transition-delay: 0.4s
+}
+.item:nth-of-type(6) .inner{
+transition-delay: 0.5s
+}
+
+
+/*点击*/
+
+.item.active{
+	width:100%;
+}
+
+.wrapper-active .item:not(.active){
+	width:0%;
+	height:0%;
+}
+
+
+.header{
+	position: absolute;
+	width:100%;
+	height:30px;
+	left:0px;
+	top:0px;
+	opacity:0;
+
+}
+.con{
+	margin-left: 30px;
+	color:#fff;
+	font-size: 24px;
+}
+.wrapper-active .item .header{
+	opacity: 1;
+	transition: all 0.2s linear 1s;
+}
+
+.close{
+	position: absolute;
+	width:30px;
+	height:30px;
+	/*border:1px solid black;*/
+	right:10px;
+	top:0;
+}
+.close::before,
+.close::after{
+	position: absolute;
+	content: "";
+	display: block;
+	width:20px;
+	height:3px;
+	background-color: #fff;
+	top:50%;
+}
+
+.close::before{
+	transform: rotate(45deg);
+}
+.close::after{
+	transform: rotate(-45deg);
+	
+}
+
+.wrapper .content .item{
+	transition: width 0.5s linear,height 0.5s linear 0.5s;
+
+} 
+
+
+.wrapper-active .content .item{
+	transition:height 0.5s linear,width 0.5s linear 0.5s;
+
+} 
+
+.item.active .inner .close{
+	transform: rotateZ(360deg);
+	transition: transform 0.5s linear 1s;
+}
+
+.item.active h3{
+	opacity: 0;
+}
